@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package smartoffice;
+
+// Meeting Room Booking Service
+service MeetingRoomBooking {
+  // Book a meeting room
+  rpc BookRoom(BookingRequest) returns (BookingResponse);
+  // Cancel a booking
+  rpc CancelBooking(CancelRequest) returns (CancelResponse);
+
+}
+
+// Request to book a meeting room
+message BookingRequest {
+  string room_id = 1;
+  string user_id = 2;
+  string time_slot = 3;
+}
+
+// Response for booking request
+message BookingResponse {
+   bool success = 1;
+   string message = 2;
+}
+
+// Request to cancel a booking
+message CancelRequest {
+  string room_id = 1;
+  string user_id = 2;
+}
+
+// Response for cancel request
+message CancelResponse {
+  string message = 1;
+  bool success = 2;
+}
+

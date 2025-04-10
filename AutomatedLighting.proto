@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package smartoffice;
+
+// Automated Lighting Service
+service AutomatedLighting { 
+  rpc ControlLights(LightRequest) returns (LightResponse);
+}
+
+// Request 
+message LightRequest {
+  string room_id = 1;
+   bool occupancy = 2;
+}
+
+// Response 
+message LightResponse {
+  string message = 1;
+  bool success =2;
+}
+
+// Request for checking light state
+message LightStateRequest {
+  string room_id = 1;
+}
+
+// Response for checking light state
+message LightStateResponse {
+  string room_id = 1;
+  bool is_working = 2; // check if the light is functioning normally
+  string state_message = 3; // information about the light state
+}
