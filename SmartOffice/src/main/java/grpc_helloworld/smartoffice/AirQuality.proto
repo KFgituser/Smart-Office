@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package smartoffice;
+
+// Air Quality Monitoring Service
+service AirQuality {
+  rpc GetAirQuality(AirQualityRequest) returns (AirQualityResponse);
+}
+
+// Request 
+message AirQualityRequest {
+  string room_id = 1;
+}
+
+// Response 
+message AirQualityResponse {
+  string room_id = 1;
+  float temperature = 2;
+  float humidity = 3;
+  float pm2_5 = 4;
+}
+
